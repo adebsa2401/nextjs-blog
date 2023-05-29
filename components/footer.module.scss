@@ -3,10 +3,11 @@
 .footer {
   background: $primary-color;
   border-top: 1px solid $secondary-color;
-  padding: 7em 1.25em;
+  padding: 7em 0;
 
   &__container {
     margin: 0 auto;
+    padding: 0 1.25em;
     display: flex;
 
     @media screen and (min-width: 640px) {

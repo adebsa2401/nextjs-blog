@@ -1,0 +1,21 @@
+@import "@/styles/variables";
+
+.headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4em 0 3em;
+
+  &__text {
+    padding-left: 2em;
+    margin-top: 1.25em;
+    line-height: 1.75em;
+    font-size: 1.125em;
+  }
+
+  &__link {
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
