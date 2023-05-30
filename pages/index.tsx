@@ -1,9 +1,19 @@
-import Image from "next/image";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 import Layout from "@/components/layout";
 import Logo from "@/components/logo";
 import styles from "./index.module.scss";
+import PostType from "@/types/post";
+import HeroPost from "@/components/hero-post";
 
-export default function Home() {
+type Props = {
+  posts: PostType[];
+}
+
+export default function Home({ posts }: Props) {
+  const [heroPost, ...morePosts] = posts;
+
   return (
     <Layout>
       <section className={styles.headline}>
@@ -12,9 +22,28 @@ export default function Home() {
           A statically generated blog example using <a className={styles.headline__link} href="https://nextjs.org/">Next.js</a> and Markdown.
         </p>
       </section>
-      {/*<div>*/}
-      {/*  <Image src="" alt="dynamic routing cover"/>*/}
-      {/*</div>*/}
+      <HeroPost {...heroPost} />
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const postsDir = "./data/_posts";
+  const files = await fs.promises.readdir(postsDir);
+  const posts = files.map((file) => {
+    const slug = file.replace(/\.md$/, "");
+    const content = fs.readFileSync(path.join(postsDir, file), "utf8");
+    const {data} = matter(content);
+
+    return {
+      slug,
+      ...data,
+    };
+  });
+
+  return {
+    props: {
+      posts
+    }
+  };
 }
