@@ -1,18 +1,15 @@
-import Image from "next/image";
 import {format} from "date-fns";
 import styles from "./hero-post.module.scss";
-import PostType from "@/types/post";
+import PostDataType from "@/types/post-data";
 import Author from "@/components/author";
 import Link from "next/link";
+import CoverImage from "@/components/cover-image";
 
-export default function HeroPost({title, coverImage, date, excerpt, author, slug}: PostType) {
+export default function HeroPost({title, coverImage, date, excerpt, author, slug}: PostDataType) {
   return (
     <article className={styles.post}>
-      <div>
-        <Link href={`/post/${slug}`}>
-          <Image className={styles.post__cover} src={coverImage} alt={`cover image for ${title}`} width={1300}
-                 height={630}/>
-        </Link>
+      <div className={styles.post__cover}>
+        <CoverImage href={`/post/${slug}`} src={coverImage} alt={`cover image for ${title}`} width={1300} height={630}/>
       </div>
       <div className={styles.post__footer}>
         <div className={styles.post__footer__left}>

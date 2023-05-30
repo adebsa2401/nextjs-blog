@@ -4,16 +4,16 @@ import matter from "gray-matter";
 import Layout from "@/components/layout";
 import Logo from "@/components/logo";
 import styles from "./index.module.scss";
-import PostType from "@/types/post";
+import PostDataType from "@/types/post-data";
 import HeroPost from "@/components/hero-post";
 import Post from "@/components/post";
 
 type Props = {
-  posts: PostType[];
+  postsData: PostDataType[];
 }
 
-export default function Home({ posts }: Props) {
-  const [heroPost, ...morePosts] = posts;
+export default function Home({ postsData }: Props) {
+  const [heroPost, ...morePosts] = postsData;
 
   return (
     <Layout>
