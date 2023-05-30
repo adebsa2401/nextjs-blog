@@ -6,6 +6,7 @@ import Logo from "@/components/logo";
 import styles from "./index.module.scss";
 import PostType from "@/types/post";
 import HeroPost from "@/components/hero-post";
+import Post from "@/components/post";
 
 type Props = {
   posts: PostType[];
@@ -23,6 +24,14 @@ export default function Home({ posts }: Props) {
         </p>
       </section>
       <HeroPost {...heroPost} />
+      <section className={styles['more-stories']}>
+        <h2 className={styles['more-stories__title']}>More Stories</h2>
+        <div className={styles['more-stories__grid']}>
+          {morePosts.map((post) => (
+            <Post key={post.slug} {...post} />
+          ))}
+        </div>
+      </section>
     </Layout>
   );
 }

@@ -1,0 +1,26 @@
+.post {
+  &__cover {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.25rem;
+  }
+
+  &__title {
+    font-size: 1.875rem;
+    line-height: 1.375;
+    font-weight: inherit;
+    margin-bottom: 1rem;
+  }
+
+  &__date {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  &__excerpt {
+    font-size: 1.125rem;
+    line-height: 1.625;
+    margin-bottom: 1rem;
+  }
+}

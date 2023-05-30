@@ -9,6 +9,10 @@
     margin: 0 auto;
     padding: 0 1.25em;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2.5rem;
 
     @media screen and (min-width: 640px) {
       max-width: 640px;
@@ -16,6 +20,7 @@
 
     @media screen and (min-width: 768px) {
       max-width: 768px;
+      flex-direction: row;
     }
 
     @media screen and (min-width: 1024px) {
@@ -24,26 +29,37 @@
   }
 
   &__left {
-    width: 50%;
-    font-size: 2.5em;
+    font-size: 2.25rem;
+    line-height: 1.2;
     letter-spacing: -0.04em;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+      width: 50%;
+      font-size: 2.5rem;
+      text-align: left;
+    }
   }
 
   &__right {
     display: flex;
     align-items: center;
+    flex-direction: inherit;
+    gap: 1.5rem;
     padding-left: 1em;
-    width: 50%;
+
+    @media screen and (min-width: 768px) {
+      width: 50%;
+    }
   }
 
   &__documentation-link {
     color: $white-color;
     background: $black-color;
-    padding: 0.75em 2em;
+    padding: 0.75rem 3rem;
     text-decoration: none;
     font-weight: 700;
     border: 1px solid $black-color;
-    margin: 0 0.75em;
 
     &:hover {
       color: $black-color;

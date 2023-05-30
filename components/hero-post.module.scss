@@ -1,55 +1,41 @@
-.post {
-  &__cover {
-    width: 100%;
-    height: auto;
-    margin-bottom: 4rem;
-  }
+@import './post.module';
 
-  &__footer {
-    display: flex;
-
-    &__left {
-      width: 50%;
+@media screen and (min-width: 768px) {
+  .post {
+    &__cover {
+      width: 100%;
+      height: auto;
+      margin-bottom: 4rem;
     }
 
-    &__right {
-      width: 50%;
-    }
-  }
+    &__footer {
+      display: flex;
 
-  &__title {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    font-weight: inherit;
-    margin-bottom: 1rem;
-  }
+      &__left {
+        width: 50%;
+      }
 
-  &__date {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
-  &__excerpt {
-    font-size: 1.125rem;
-    line-height: 1.625;
-    margin-bottom: 1rem;
-  }
-
-  &__author {
-    display: flex;
-    align-items: center;
-
-    &__picture {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      margin-right: 1rem;
+      &__right {
+        width: 50%;
+      }
     }
 
-    &__name {
-      font-size: 1.25rem;
+    &__title {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      font-weight: inherit;
+      margin-bottom: 1rem;
+    }
+
+    &__date {
+      font-size: 1.125rem;
       line-height: 1.75rem;
-      font-weight: 700;
+    }
+
+    &__excerpt {
+      font-size: 1.125rem;
+      line-height: 1.625;
+      margin-bottom: 1rem;
     }
   }
 }
