@@ -5,7 +5,7 @@ import {remark} from "remark";
 import html from "remark-html";
 import {format} from "date-fns";
 import PostType from "@/types/post";
-import Layout from "@/components/layout";
+import Layout from "@/pages/post/[slug]-layout";
 import Logo from "@/components/logo";
 import Author from "@/components/author";
 import CoverImage from "@/components/cover-image";
@@ -20,9 +20,6 @@ export default function BlogPost({ post }: Props) {
 
   return (
     <Layout>
-      <div className={styles.logo}>
-        <Logo />
-      </div>
       <article className={styles.post}>
         <h1 className={styles.post__title}>{data.title}</h1>
         <div className={styles.post__author}>
