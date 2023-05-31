@@ -9,6 +9,7 @@ import Layout from "@/components/layout";
 import Logo from "@/components/logo";
 import Author from "@/components/author";
 import CoverImage from "@/components/cover-image";
+import styles from "./[slug].module.scss";
 
 type Props = {
   post: PostType
@@ -19,18 +20,24 @@ export default function BlogPost({ post }: Props) {
 
   return (
     <Layout>
-      <Logo />
-      <h1>{data.title}</h1>
-      <Author {...data.author}/>
-      <div>
-        <CoverImage src={data.coverImage} alt={`cover image for ${post.data}`} width={1300} height={630}/>
+      <div className={styles.logo}>
+        <Logo />
       </div>
-      <div>
-        <div>
-          <time dateTime={data.date}>{format(new Date(data.date), 'LLLL d, yyyy')}</time>
+      <article className={styles.post}>
+        <h1 className={styles.post__title}>{data.title}</h1>
+        <div className={styles.post__author}>
+          <Author {...data.author}/>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: content }}/>
-      </div>
+        <div className={styles.post__cover}>
+          <CoverImage src={data.coverImage} alt={`cover image for ${post.data}`} width={1300} height={630}/>
+        </div>
+        <div className={styles['content-container']}>
+          <div className={styles.post__date}>
+            <time dateTime={data.date}>{format(new Date(data.date), 'LLLL d, yyyy')}</time>
+          </div>
+          <div className={styles.post__content} dangerouslySetInnerHTML={{ __html: content }}/>
+        </div>
+      </article>
     </Layout>
   )
 }

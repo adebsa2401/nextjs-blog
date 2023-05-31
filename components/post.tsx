@@ -11,9 +11,11 @@ export default function Post({title, coverImage, date, excerpt, author, slug}: P
       <div className={styles.post__cover}>
         <CoverImage href={`/post/${slug}`} src={coverImage} alt={`cover image for ${title}`} width={1300} height={630}/>
       </div>
-      <Link href={`/post/${slug}`}>
-        <h3 className={styles.post__title}>{title}</h3>
-      </Link>
+
+        <h3 className={styles.post__title}>
+          <Link className={styles.post__title__link} href={`/post/${slug}`}>{title}</Link>
+        </h3>
+
       <div className={styles.post__date}>
         <time dateTime={date}>{format(new Date(date), "LLLL d, yyyy")}</time>
       </div>

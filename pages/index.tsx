@@ -39,7 +39,7 @@ export default function Home({ postsData }: Props) {
 export async function getStaticProps() {
   const postsDir = "./data/_posts";
   const files = await fs.promises.readdir(postsDir);
-  const posts = files.map((file) => {
+  const postsData = files.map((file) => {
     const slug = file.replace(/\.md$/, "");
     const content = fs.readFileSync(path.join(postsDir, file), "utf8");
     const {data} = matter(content);
@@ -52,7 +52,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts
+      postsData
     }
   };
 }

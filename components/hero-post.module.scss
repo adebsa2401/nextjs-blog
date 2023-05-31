@@ -23,6 +23,14 @@
       line-height: 1.2;
       font-weight: inherit;
       margin-bottom: 1rem;
+
+      &__link {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     &__date {

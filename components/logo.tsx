@@ -1,5 +1,6 @@
 import styles from './logo.module.scss';
 import clsx from "clsx";
+import Link from "next/link";
 
 type Props = {
   home?: boolean
@@ -13,7 +14,9 @@ export default function Logo({ home }: Props) {
   }
 
   return (
-    <h2 className={styles.logo}>Blog.</h2>
+    <h2 className={styles.logo}>
+      <Link className={styles.logo__link} href="/">Blog</Link>.
+    </h2>
   );
 }
 

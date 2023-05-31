@@ -13,9 +13,11 @@ export default function HeroPost({title, coverImage, date, excerpt, author, slug
       </div>
       <div className={styles.post__footer}>
         <div className={styles.post__footer__left}>
-          <Link href={`/post/${slug}`}>
-            <h3 className={styles.post__title}>{title}</h3>
-          </Link>
+
+          <h3 className={styles.post__title}>
+            <Link className={styles.post__title__link} href={`/post/${slug}`}>{title}</Link>
+          </h3>
+
           <div className={styles.post__date}>
             <time dateTime={date}>{format(new Date(date), 'LLLL d, yyyy')}</time>
           </div>
