@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import Layout from "@/components/layout";
 import Logo from "@/components/logo";
 import styles from "./index.module.scss";
 import PostDataType from "@/types/post-data";
@@ -12,15 +11,16 @@ type Props = {
   postsData: PostDataType[];
 }
 
-export default function Home({ postsData }: Props) {
+const Home = ({postsData}: Props) => {
   const [heroPost, ...morePosts] = postsData;
 
   return (
-    <Layout>
+    <>
       <section className={styles.headline}>
         <Logo home/>
         <p className={styles.headline__text}>
-          A statically generated blog example using <a className={styles.headline__link} href="https://nextjs.org/">Next.js</a> and Markdown.
+          A statically generated blog example using <a className={styles.headline__link}
+                                                       href="https://nextjs.org/">Next.js</a> and Markdown.
         </p>
       </section>
       <HeroPost {...heroPost} />
@@ -32,8 +32,9 @@ export default function Home({ postsData }: Props) {
           ))}
         </div>
       </section>
-    </Layout>
-  );
+    </>
+  )
+    ;
 }
 
 export async function getStaticProps() {
@@ -56,3 +57,5 @@ export async function getStaticProps() {
     }
   };
 }
+
+export default Home;

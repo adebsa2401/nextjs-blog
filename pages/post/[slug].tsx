@@ -6,20 +6,21 @@ import html from "remark-html";
 import {format} from "date-fns";
 import PostType from "@/types/post";
 import Layout from "@/pages/post/[slug]-layout";
-import Logo from "@/components/logo";
 import Author from "@/components/author";
 import CoverImage from "@/components/cover-image";
 import styles from "./[slug].module.scss";
+import React from "react";
+import {NextPageWithLayout} from "@/types/app-props";
 
 type Props = {
   post: PostType
 }
 
-export default function BlogPost({ post }: Props) {
+const BlogPost: NextPageWithLayout<Props> = ({ post }: Props) => {
   const { data, content } = post;
 
   return (
-    <Layout>
+    <>
       <article className={styles.post}>
         <h1 className={styles.post__title}>{data.title}</h1>
         <div className={styles.post__author}>
@@ -35,9 +36,15 @@ export default function BlogPost({ post }: Props) {
           <div className={styles.post__content} dangerouslySetInnerHTML={{ __html: content }}/>
         </div>
       </article>
-    </Layout>
+    </>
   )
 }
+
+BlogPost.getLayout = (page: React.ReactElement) => (
+  <Layout>
+    {page}
+  </Layout>
+);
 
 export async function getStaticPaths() {
   const postsDir = "./data/_posts";
@@ -76,3 +83,5 @@ export async function getStaticProps({ params }: Params) {
     }
   }
 }
+
+export default BlogPost;
