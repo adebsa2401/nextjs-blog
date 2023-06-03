@@ -1,0 +1,28 @@
+.content {
+  padding: 3.5rem 0 8.5rem;
+}
+
+.error {
+  text-align: center;
+}
+
+.back-container {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.04rem;
+
+  &::before {
+    content: "←";
+    margin-right: 0.5rem;
+  }
+}
+
+.back {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,4 +1,4 @@
-import styles from './logo.module.scss';
+import styles from '@/components/styles/logo.module.scss';
 import clsx from "clsx";
 import Link from "next/link";
 

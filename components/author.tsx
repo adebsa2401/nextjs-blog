@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AuthorType from "@/types/author";
-import styles from "@/components/author.module.scss";
+import styles from "@/components/styles/author.module.scss";
 
 export default function Author({ name, picture }: AuthorType) {
   return (

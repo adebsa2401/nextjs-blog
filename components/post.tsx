@@ -1,7 +1,7 @@
 import PostDataType from "@/types/post-data";
 import { format } from "date-fns"
 import Author from "@/components/author";
-import styles from "./post.module.scss";
+import styles from "./styles/post.module.scss";
 import Link from "next/link";
 import CoverImage from "@/components/cover-image";
 

@@ -1,18 +1,16 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import Logo from "@/components/logo";
-import styles from "./index.module.scss";
+import styles from "@/app/_styles/page.module.scss";
 import PostDataType from "@/types/post-data";
 import HeroPost from "@/components/hero-post";
 import Post from "@/components/post";
+import {usePostsData} from "@/hooks/data";
 
 type Props = {
   postsData: PostDataType[];
 }
 
-const Home = ({postsData}: Props) => {
-  const [heroPost, ...morePosts] = postsData;
+const Home = async () => {
+  const [heroPost, ...morePosts] = await usePostsData();
 
   return (
     <>
@@ -35,27 +33,6 @@ const Home = ({postsData}: Props) => {
     </>
   )
     ;
-}
-
-export async function getStaticProps() {
-  const postsDir = "./data/_posts";
-  const files = await fs.promises.readdir(postsDir);
-  const postsData = files.map((file) => {
-    const slug = file.replace(/\.md$/, "");
-    const content = fs.readFileSync(path.join(postsDir, file), "utf8");
-    const {data} = matter(content);
-
-    return {
-      slug,
-      ...data,
-    };
-  });
-
-  return {
-    props: {
-      postsData
-    }
-  };
 }
 
 export default Home;

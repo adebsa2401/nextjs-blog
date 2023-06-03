@@ -1,5 +1,5 @@
 import {format} from "date-fns";
-import styles from "./hero-post.module.scss";
+import styles from "./styles/hero-post.module.scss";
 import PostDataType from "@/types/post-data";
 import Author from "@/components/author";
 import Link from "next/link";
