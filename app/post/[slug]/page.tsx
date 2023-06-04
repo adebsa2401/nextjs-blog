@@ -18,19 +18,19 @@ const BlogPost = async ({ params }: Props) => {
 
   return (
     <>
-      <article className={styles.post}>
-        <h1 className={styles.post__title}>{data.title}</h1>
-        <div className={styles.post__author}>
+      <article className="mb-32">
+        <h1 className="text-[6.25rem] tracking-tighter font-bold mb-12">{data.title}</h1>
+        <div className="mb-12">
           <Author {...data.author}/>
         </div>
-        <div className={styles.post__cover}>
+        <div className="mb-16">
           <CoverImage src={data.coverImage} alt={`cover image for ${data}`} width={1300} height={630}/>
         </div>
-        <div className={styles['content-container']}>
-          <div className={styles.post__date}>
+        <div className="max-w-2xl mx-auto">
+          <div className="text-lg mb-6">
             <time dateTime={data.date}>{format(new Date(data.date), 'LLLL d, yyyy')}</time>
           </div>
-          <div className={styles.post__content} dangerouslySetInnerHTML={{ __html: content }}/>
+          <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }}/>
         </div>
       </article>
     </>
