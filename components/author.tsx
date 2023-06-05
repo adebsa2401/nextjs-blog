@@ -1,14 +1,13 @@
 import Image from "next/image";
 import AuthorType from "@/types/author";
-import styles from "@/components/styles/author.module.scss";
 
 export default function Author({ name, picture }: AuthorType) {
   return (
-    <div className={styles.author}>
+    <div className="flex items-center">
       <div>
-        <Image className={styles.author__picture} src={picture} alt="dynamic routing cover" width={100} height={100}/>
+        <Image className="w-12 h-12 rounded-full mr-4" src={picture} alt="dynamic routing cover" width={100} height={100}/>
       </div>
-      <div className={styles.author__name}>{name}</div>
+      <div className="text-xl font-bold">{name}</div>
     </div>
   )
 }

@@ -14,7 +14,7 @@ const Error= ({ error, reset}: Props) => {
       <div className="pt-14 pb-[8.5rem]">
         <h1 className="text-center">404 - Page Not Found</h1>
         <div className="text-center py-8 text-[1.2rem]/[1.5rem] tracking-tighter before:content-['←'] before:mr-2">
-          <Link className="no-underline hover:underline" href="/">Back to home</Link>
+          <Link className="hover:underline" href="/">Back to home</Link>
         </div>
       </div>
     </>

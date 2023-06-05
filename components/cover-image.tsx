@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./styles/cover-image.module.scss";
 import CoverImageType from "@/types/cover-image";
 
 export default function CoverImage({ href, src, alt, ...imageProps }: CoverImageType) {
@@ -8,10 +7,10 @@ export default function CoverImage({ href, src, alt, ...imageProps }: CoverImage
     <div>
       {href ? (
         <Link href={href}>
-          <Image className={styles.cover} src={src} alt={alt} {...imageProps}/>
+          <Image className="w-full" src={src} alt={alt} {...imageProps}/>
         </Link>
       ) : (
-        <Image className={styles.cover} src={src} alt={alt} {...imageProps}/>
+        <Image className="w-full" src={src} alt={alt} {...imageProps}/>
       )}
     </div>
   );

@@ -19,7 +19,7 @@ const BlogPost = async ({ params }: Props) => {
   return (
     <>
       <article className="mb-32">
-        <h1 className="text-[6.25rem] tracking-tighter font-bold mb-12">{data.title}</h1>
+        <h1 className="text-5xl md:text-[6.25rem] tracking-tighter font-semibold md:font-bold mb-12">{data.title}</h1>
         <div className="mb-12">
           <Author {...data.author}/>
         </div>
